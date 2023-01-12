@@ -1,1 +1,1 @@
-# Storage-Constrained-LCC
+# Storage Constrained Linear Computation Coding
