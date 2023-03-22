@@ -10,7 +10,7 @@ python Wiring_Script.py
 ```
 
 
-After all the Decompositions are computed and saved under `*.npz* files, run 
+After all the Decompositions are computed and saved under `*.npz*` files, run 
 
 ```
 python Error_Plot.py 
