@@ -1,6 +1,6 @@
 # Storage Constrained Linear Computation Coding
 
-##Run Simulations
+## Run Simulations
 Warning! You need at least 16 GB of RAM on your machine to run the simulations for the configured 1000 decompoisitons to average over.
 
 To run the simulation and create the files containing the target matrices along with their decompositions run 
