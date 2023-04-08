@@ -7,11 +7,11 @@ To run the simulation and create the files containing the target matrices for bo
 
 ```
 python Wiring_Script.py
-python Wiring_Script_non_IID.py
+python Wiring_Script.py non_IID
 ```
 
 
-After all the Decompositions are computed and saved under `*.npz*` files, run 
+After all the Decompositions are computed and saved under `*.npz` files, run 
 
 ```
 python Error_Plot.py 
