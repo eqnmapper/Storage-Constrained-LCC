@@ -21,7 +21,7 @@ used_algorithms = ['Unconstrained_Wiring','HWES_set_integer_exponents',
 
 data_paths = []
 for alg in used_algorithms:
-    data_paths.append(f'Target_Wiring_UNN_Constr_Quant_C_{alg}_sparsity_3.npz')
+    data_paths.append(f'Target_Wiring_UNN_Constr_Quant_C_{alg}_sparsity_3_IID.npz')
 
 
 wiring_depth = 10
