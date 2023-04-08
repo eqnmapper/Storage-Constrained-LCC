@@ -12,7 +12,13 @@ from lib.Common_Functions import quantize_nearest_power_2, quantize_nearest_powe
 from lib.Wiring_Algorithm_Finite_Set import wiring_matrices_finite_set
 from lib.Wiring_Algorithm import wiring_matrices
 from tqdm import trange
-
+#for command line argument: non_IID for non iid case of target matrix
+import sys
+#create tag for non_IID and IID case
+if sys.argv[1] == 'non_IID':
+    tag = 'non_IID'
+else:
+    tag = 'IID'
 
 
 
@@ -32,7 +38,10 @@ used_algorithms = [HWES_set_integer_exponents,EWdA_set_integer_exponents,SBF_set
 
 #initialize variables for wiring wiring matrices and targets matrices
 Wiring_Mats = np.zeros((iterations_averaging,num_wiring,K,K))
-Target_Mats = np.random.randn(iterations_averaging,N,K)*1/np.sqrt(N)*np.random.rand(iterations_averaging,K)[:,None,:]*10
+if tag == 'non_IID':
+    Target_Mats = np.random.randn(iterations_averaging,N,K)*1/np.sqrt(N)*np.random.rand(iterations_averaging,K)[:,None,:]*10
+else:
+    Target_Mats = np.random.randn(iterations_averaging,N,K)*1/np.sqrt(N)
 
 
 #quantize Target_Mats to the next power of 2 (with storage demand of 5+1 bit per entry)
@@ -45,7 +54,7 @@ for i in trange(iterations_averaging):
        
 
 
-np.savez_compressed(f'Target_Wiring_UNN_Constr_Quant_C_Unconstrained_Wiring_sparsity_{sparsity}_non_IID.npz',Wiring_Mats=Wiring_Mats,Target_Mats=Target_Mats)
+np.savez_compressed(f'Target_Wiring_UNN_Constr_Quant_C_Unconstrained_Wiring_sparsity_{sparsity}_{tag}.npz',Wiring_Mats=Wiring_Mats,Target_Mats=Target_Mats)
 del Wiring_Mats
 
 
@@ -81,7 +90,7 @@ for alg in used_algorithms:
            
     
     
-    np.savez_compressed(f'Target_Wiring_UNN_Constr_Quant_C_{alg.__name__}_sparsity_{sparsity}_non_IID.npz',Wiring_Mats=Wiring_Mats,Target_Mats=Target_Mats)
+    np.savez_compressed(f'Target_Wiring_UNN_Constr_Quant_C_{alg.__name__}_sparsity_{sparsity}_{tag}.npz',Wiring_Mats=Wiring_Mats,Target_Mats=Target_Mats)
     
     #delete wiring mats to free memory
     del Wiring_Mats
@@ -118,7 +127,7 @@ for alg in used_algorithms:
            
     
     
-    np.savez_compressed(f'Target_Wiring_UNN_Constr_Quant_C_{alg.__name__}_not_codebook_weighted_sparsity_{sparsity}_non_IID.npz',Wiring_Mats=Wiring_Mats,Target_Mats=Target_Mats)
+    np.savez_compressed(f'Target_Wiring_UNN_Constr_Quant_C_{alg.__name__}_not_codebook_weighted_sparsity_{sparsity}_{tag}.npz',Wiring_Mats=Wiring_Mats,Target_Mats=Target_Mats)
     
     #delete wiring mats to free memory
     del Wiring_Mats
