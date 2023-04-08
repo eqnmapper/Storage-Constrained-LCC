@@ -45,7 +45,7 @@ for i in trange(iterations_averaging):
        
 
 
-np.savez_compressed(f'Target_Wiring_UNN_Constr_Quant_C_Unconstrained_Wiring_sparsity_{sparsity}.npz',Wiring_Mats=Wiring_Mats,Target_Mats=Target_Mats)
+np.savez_compressed(f'Target_Wiring_UNN_Constr_Quant_C_Unconstrained_Wiring_sparsity_{sparsity}_non_IID.npz',Wiring_Mats=Wiring_Mats,Target_Mats=Target_Mats)
 del Wiring_Mats
 
 
@@ -81,7 +81,7 @@ for alg in used_algorithms:
            
     
     
-    np.savez_compressed(f'Target_Wiring_UNN_Constr_Quant_C_{alg.__name__}_sparsity_{sparsity}.npz',Wiring_Mats=Wiring_Mats,Target_Mats=Target_Mats)
+    np.savez_compressed(f'Target_Wiring_UNN_Constr_Quant_C_{alg.__name__}_sparsity_{sparsity}_non_IID.npz',Wiring_Mats=Wiring_Mats,Target_Mats=Target_Mats)
     
     #delete wiring mats to free memory
     del Wiring_Mats
@@ -118,7 +118,7 @@ for alg in used_algorithms:
            
     
     
-    np.savez_compressed(f'Target_Wiring_UNN_Constr_Quant_C_{alg.__name__}_not_codebook_weighted_sparsity_{sparsity}.npz',Wiring_Mats=Wiring_Mats,Target_Mats=Target_Mats)
+    np.savez_compressed(f'Target_Wiring_UNN_Constr_Quant_C_{alg.__name__}_not_codebook_weighted_sparsity_{sparsity}_non_IID.npz',Wiring_Mats=Wiring_Mats,Target_Mats=Target_Mats)
     
     #delete wiring mats to free memory
     del Wiring_Mats
