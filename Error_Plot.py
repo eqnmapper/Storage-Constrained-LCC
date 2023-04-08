@@ -85,7 +85,7 @@ for case in cases:
   plt.xlabel('Wiring Layer')
   plt.xticks(np.arange(0,11,1),np.arange(0,11,1))
   plt.legend()
-  plt.savefig(f'MSE_sparsity_3_{case}', dpi=200)
+  plt.savefig(f'MSE_{case}', dpi=200)
 
 
 
